@@ -1,0 +1,6 @@
+{
+  "test_toy_robot_simulation.py::TestRobot::test_robot_set_position": true, 
+  "test_toy_robot_simulation.py::TestRobotSimulation::test_robot_set_position": true, 
+  "test_toy_robot_simulation.py::TestStringMethods::test_robot_set_position": true, 
+  "test_toy_robot_simulation.py::TestStringMethods::test_upper": true
+}

@@ -77,14 +77,13 @@ class RobotPosition:
 def command_func(command_list):
     table = Table()
     robot_info = False
+    robot_position = {}
     for command in command_list:
         if "{0}".format(command).upper() == COMMAND_LIST[0]:
             robot_info = True
         if robot_info == True and "{0}".format(command) not in COMMAND_LIST:
             command = "{0}".format(command).split(",")
-            try:
-                len(command) == 3
-            except:
+            if len(command) != 3:
                 raise InvalidCommand("Robot command PLACE must have three params, x-position, y-position, direction")
             try:
                 x_position = int(command[0])
@@ -97,12 +96,13 @@ def command_func(command_list):
                 robot_position = RobotPosition(x_position=x_position, y_position=y_position, direction=direction)
             else:
                 raise ValueError("Robot direction does not exist!")
-        if "{0}".format(command).upper() == COMMAND_LIST[1]:
-            robot_position.move_robot(Table=table)
-        if "{0}".format(command).upper() in COMMAND_LIST[2:4]:
-            robot_position.rotate_robot(command="{0}".format(command).upper())
-        if "{0}".format(command).upper() == COMMAND_LIST[4]:
-            print(robot_position.report_of_robot())
+        if robot_position:
+            if "{0}".format(command).upper() == COMMAND_LIST[1]:
+                robot_position.move_robot(Table=table)
+            if "{0}".format(command).upper() in COMMAND_LIST[2:4]:
+                robot_position.rotate_robot(command="{0}".format(command).upper())
+            if "{0}".format(command).upper() == COMMAND_LIST[4]:
+                print(robot_position.report_of_robot())
 
 
 if __name__ == "__main__":
