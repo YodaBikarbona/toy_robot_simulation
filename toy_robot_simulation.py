@@ -34,21 +34,21 @@ class RobotPosition:
 
     def move_robot(self, Table):
         if self.direction == DIRECTION_LIST[0]:
-            if self.x_position + 1 > Table.max_x:
-                raise ValueError("Robot cannot go to {0} anymore!".format(self.direction))
-            self.x_position += 1
-        elif self.direction == DIRECTION_LIST[1]:
             if self.y_position + 1 > Table.max_y:
                 raise ValueError("Robot cannot go to {0} anymore!".format(self.direction))
             self.y_position += 1
-        elif self.direction == DIRECTION_LIST[2]:
-            if self.x_position - 1 < Table.min_x:
+        elif self.direction == DIRECTION_LIST[1]:
+            if self.x_position + 1 > Table.max_x:
                 raise ValueError("Robot cannot go to {0} anymore!".format(self.direction))
-            self.x_position -= 1
-        else:
+            self.x_position += 1
+        elif self.direction == DIRECTION_LIST[2]:
             if self.y_position - 1 < Table.min_y:
                 raise ValueError("Robot cannot go to {0} anymore!".format(self.direction))
             self.y_position -= 1
+        else:
+            if self.x_position - 1 < Table.min_x:
+                raise ValueError("Robot cannot go to {0} anymore!".format(self.direction))
+            self.x_position -= 1
 
     def rotate_robot(self, command):
         if command == COMMAND_LIST[2]:
