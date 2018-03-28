@@ -14,9 +14,6 @@ class Table:
         self.max_x = 5
         self.max_y = 5
 
-        if self.x_size != 5 and self.y_size != 5:
-            raise ValueError("Table must be 5x5 units")
-
     def __repr__(self):
         return "Table has dimension {0}x{1} units".format(self.x_size, self.y_size)
 
