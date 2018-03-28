@@ -171,8 +171,7 @@ class Robot:
         else:
             pass
 
-            # Define rotate method
-
+    # Define rotate method
     def rotate_robot(self, command):
         if command == COMMAND_LIST[2]:
             if self.direction == DIRECTION_LIST[0]:
@@ -193,8 +192,7 @@ class Robot:
             else:
                 self.direction = DIRECTION_LIST[0]
 
-                # Define report method
-
+    # Define report method
     def report_of_robot(self):
         return "{0},{1},{2}".format(self.x_position, self.y_position, self.direction)
 
